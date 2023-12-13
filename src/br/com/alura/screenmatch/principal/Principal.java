@@ -1,15 +1,17 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculo.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculo.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
 
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O Poderoso Chefão");
-        meuFilme.setAnoDeLancamento(1972);
+        Filme meuFilme = new Filme("O Poderoso Chefão", 1972);
         meuFilme.setDuracaoEmMinutos(175);
         meuFilme.setIncluidoNoPlano(true);
         meuFilme.exibeFichaTecnica();
@@ -20,17 +22,13 @@ public class Principal {
         System.out.println("Média de avaliações: " + meuFilme.pegaMedia() + " | Total de avaliações: " +
                 meuFilme.getTotalDeAvaliacoes());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoDeLancamento(2000);
+        Serie lost = new Serie("Lost", 2000);
         lost.setTemporadas(7);
         lost.setEpisodiosPorTemporada(22);
         lost.setMinutosPorEpisodio(45);
         System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avatar");
-        outroFilme.setAnoDeLancamento(2023);
+        Filme outroFilme = new Filme("Avatar", 2023);
         outroFilme.setDuracaoEmMinutos(200);
 
 
@@ -48,6 +46,19 @@ public class Principal {
         episodio.setSerie(lost);
         episodio.setTotalDeVisualizacoes(300);
         filtro.filtra(episodio);
-    }
 
+        var filmeDoLeandro = new Filme("Senhor dos Anéis - O Retorno do Rei", 2003);
+        filmeDoLeandro.setDuracaoEmMinutos(201);
+        filmeDoLeandro.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filmeDoLeandro);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).toString());
+    }
 }
+
