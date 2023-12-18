@@ -47,7 +47,7 @@ public class Principal {
         episodio.setTotalDeVisualizacoes(300);
         filtro.filtra(episodio);
 
-        var filmeDoLeandro = new Filme("Senhor dos Anéis - O Retorno do Rei", 2003);
+        var filmeDoLeandro = new Filme("O Senhor dos Anéis - O Retorno do Rei", 2003);
         filmeDoLeandro.setDuracaoEmMinutos(201);
         filmeDoLeandro.avalia(10);
 
